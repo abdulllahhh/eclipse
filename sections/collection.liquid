@@ -65,7 +65,7 @@
     </div>
     
     <div 
-      class="collection-grid-empty alert"
+      class="collection-empty alert"
       {% if collection.products_count > 0 %}
         hidden
       {% endif %}
@@ -75,7 +75,7 @@
     
       {% paginate collection.products by limit %}
         <ul
-          class="collection-grid"
+          class="product-grid"
           style="
             --mobile-cols: {{ section.settings.mobile_cols }};
             --desktop-cols: {{ section.settings.desktop_cols }};

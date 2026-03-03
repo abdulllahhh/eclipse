@@ -425,7 +425,7 @@ textarea.input {
 
 select.input {
   appearance: none;
-  padding-right: 2.25em;
+  padding-right: 2.25em !important;
 }
 
 select.input + svg {
@@ -1062,14 +1062,116 @@ shopify-accelerated-checkout {
 
 
 /*
+  Theme carousel
+*/
+.theme-carousel {
+  --mobile-cols: 1;
+  --tablet-cols: 3;
+  --desktop-cols: 4;
+  --gap: 1rem;
+  --cols: var(--mobile-cols);
+  display: block;
+  position: relative;
+}
+
+.theme-carousel-track {
+  display: flex;
+  gap: var(--gap);
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+}
+
+.theme-carousel-track::-webkit-scrollbar {
+  display: none;
+}
+
+.theme-carousel-item {
+  scroll-snap-align: start;
+  flex: 0 0 calc((100% - (var(--cols) - 1) * var(--gap)) / var(--cols));
+}
+
+.theme-carousel-controls {}
+
+.theme-carousel-controls button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(var(--color-background) / 0.75);
+  backdrop-filter: blur(4px);
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+  border-radius: var(--border-radius);
+  outline-offset: -4px;
+  z-index: 2;
+}
+
+.theme-carousel-controls button:hover {
+  background: rgba(var(--color-background));
+}
+
+.theme-carousel-controls button:active {
+  background: rgba(var(--color-background) / 0.25);
+}
+
+.theme-carousel-controls button[data-prev] {
+  left: 1rem;
+}
+
+.theme-carousel-controls button[data-next] {
+  right: 1rem;
+}
+
+@media (min-width: 600px) and (max-width: 1199px) {
+  .theme-carousel {
+    --cols: var(--tablet-cols);
+  }
+}
+
+@media (min-width: 1200px) {
+  .theme-carousel {
+    --cols: var(--desktop-cols);
+  }
+}
+
+
+/*
+  Product grid
+*/
+.product-grid {
+  display: grid;
+  gap: 2rem 1rem;
+  grid-template-columns: repeat(var(--mobile-cols, 1), 1fr);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+@media (min-width: 600px) and (max-width: 1199px) {
+  .product-grid {
+    grid-template-columns: repeat(var(--tablet-cols, 3), 1fr);
+  }
+}
+
+@media (min-width: 1200px) {
+  .product-grid {
+    grid-template-columns: repeat(var(--desktop-cols, 4), 1fr);
+  }
+}
+
+
+/*
   Product card
 */
 .product-card {
   position: relative;
   display: flex;
   flex-direction: column;
-  margin-bottom: 1rem;
-  height: calc(100% - 1rem);
+  height: 100%;
 }
 
 .product-card .img-wrapper {
@@ -1118,6 +1220,10 @@ shopify-accelerated-checkout {
 
 .product-card .heading a:focus-visible::after {
   outline-color: currentColor;
+}
+
+.theme-carousel .product-card .heading a:after {
+  outline-offset: -2px;
 }
 
 .product-card-vendor {

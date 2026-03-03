@@ -1,0 +1,19 @@
+{% liquid 
+ assign placeholder_index = index | modulo: 4 | plus: 1
+%}
+
+<div class="product-card {{ section.settings.card_text_alignment | prepend: 'text-' }}">
+  <div class="img-wrapper">
+    {{ 'product-apparel-' | append: placeholder_index | placeholder_svg_tag: 'placeholder-svg img-fluid' }}
+  </div>
+  <div class="product-card-inner">
+    <h3 class="heading {{ section.settings.card_heading_size }}">
+      <a href="#">Product {{ index }}</a>
+    </h3>
+    <div class="product-card-price">
+      <p class="price">
+        $19.99
+      </p>
+    </div>
+  </div>
+</div>

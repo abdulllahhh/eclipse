@@ -62,13 +62,7 @@
   margin: 0;
 }
 
-.collection-grid {
-  display: grid;
-  gap: 1rem;
-  grid-template-columns: repeat(var(--mobile-cols, 1), 1fr);
-  list-style: none;
-  padding: 0;
-  margin: 0;
+.collection .product-grid {
   transition: all .2s ease-out;
 }
 
@@ -118,17 +112,8 @@
   gap: 0.5rem;
 }
 
-@media (min-width: 600px) and (max-width: 1199px) {
-  .collection-grid {
-    grid-template-columns: repeat(3, 1fr);
-  } 
-}
-
 @media (min-width: 1200px) {
   .collection-bar {
     margin-bottom: 2rem;
-  }
-  .collection-grid {
-    grid-template-columns: repeat(var(--desktop-cols, 1), 1fr);
   }
 }

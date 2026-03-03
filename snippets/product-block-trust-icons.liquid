@@ -64,11 +64,12 @@
           {% assign img_size_scaled = block.settings.img_size | times: 2 %}
           <img
             class="img-fluid"
-            src="{{ img | image_url: width: img_size_scaled }}"
+            src="{{ img | image_url: width: img_size_scaled }}" 
             alt="{{ img.alt | escape }}"
             width="{{ block.settings.img_size }}"
             height="{{ block.settings.img_size | divided_by: img.aspect_ratio | round }}"
             loading="lazy"
+            data-transform-svg-inline
           >
         {% endif %}
         <div class="description rte {{ block.settings.description_size }}">

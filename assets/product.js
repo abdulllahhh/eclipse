@@ -1117,3 +1117,4 @@ class ProductGallery extends HTMLElement {
   }
 }
 customElements.define('product-gallery', ProductGallery);
+

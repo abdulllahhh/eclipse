@@ -741,6 +741,101 @@ class ThemeDialog extends HTMLElement {
 customElements.define('theme-dialog', ThemeDialog);
 
 
+/*  
+Carousel
+*/
+class ThemeCarousel extends HTMLElement {
+  constructor() {
+    super();
+    this.mobileQuery = window.matchMedia('(max-width: 599px)');
+    this.tabletQuery = window.matchMedia('(min-width: 600px) and (max-width: 1199px)');
+    this.desktopQuery = window.matchMedia('(min-width: 1200px)');
+    this.boundHandlers = {
+      prev: () => this.prevSlide(),
+      next: () => this.nextSlide()
+    };
+  }
+
+  connectedCallback() {
+    this.initCarousel();
+  }
+
+  disconnectedCallback() {
+    if (this.prevBtn) {
+      this.prevBtn.removeEventListener('click', this.boundHandlers.prev);
+    }
+    if (this.nextBtn) {
+      this.nextBtn.removeEventListener('click', this.boundHandlers.next);
+    }
+  }
+
+  initCarousel() {
+    this.track = this.querySelector('.theme-carousel-track');
+    this.items = this.track ? this.track.querySelectorAll('.theme-carousel-item') : this.querySelectorAll('.theme-carousel-item');
+    this.prevBtn = this.querySelector('[data-prev]');
+    this.nextBtn = this.querySelector('[data-next]');
+
+    if (this.prevBtn) {
+      this.prevBtn.addEventListener('click', this.boundHandlers.prev);
+    }
+    if (this.nextBtn) {
+      this.nextBtn.addEventListener('click', this.boundHandlers.next);
+    }
+  }
+
+  getGapValue() {
+    const computedStyle = getComputedStyle(this);
+    const gapValue = computedStyle.getPropertyValue('--gap')?.trim() || '1rem';
+    return parseFloat(gapValue) * (gapValue.includes('rem') ? 16 : 1);
+  }
+
+  getScrollAmount() {
+    const firstItem = this.items[0];
+    if (!firstItem) {
+      return 0;
+    }
+    return firstItem.offsetWidth + this.getGapValue();
+  }
+
+  getMaxScroll() {
+    return this.track.scrollWidth - this.track.clientWidth;
+  }
+
+  isAtStart() {
+    return this.track.scrollLeft <= 10;
+  }
+
+  isAtEnd() {
+    return this.track.scrollLeft >= this.getMaxScroll() - 10;
+  }
+
+  nextSlide() {
+    if (!this.track || !this.items.length) {
+      return;
+    }
+
+    if (this.isAtEnd()) {
+      this.track.scrollTo({ left: 0, behavior: 'smooth' });
+    } else {
+      this.track.scrollBy({ left: this.getScrollAmount(), behavior: 'smooth' });
+    }
+  }
+
+  prevSlide() {
+    if (!this.track || !this.items.length) {
+      return;
+    }
+
+    if (this.isAtStart()) {
+      this.track.scrollTo({ left: this.getMaxScroll(), behavior: 'smooth' });
+    } else {
+      this.track.scrollBy({ left: -this.getScrollAmount(), behavior: 'smooth' });
+    }
+  }
+}
+customElements.define('theme-carousel', ThemeCarousel);
+
+
 /*
   Sticky header
 */
@@ -877,6 +972,108 @@ function initMediaOnView() {
 }
 
 initMediaOnView();
+
+
+/*
+  SVG inline utility
+*/
+async function inlineSvgImages() {
+  var root = document;
+  var selector = 'img[data-transform-svg-inline]';
+  var forceCurrentColor = true;
+  var preserveFillNone = true;
+  var credentials = 'same-origin';
+  var images = [];
+
+  if (!root || typeof root.querySelectorAll !== 'function') {
+    return [];
+  }
+
+  images = Array.from(root.querySelectorAll(selector));
+
+  return Promise.all(
+    images.map(async (img) => {
+      var source = img.currentSrc || img.getAttribute('src') || '';
+      var normalizedSource = source.split('?')[0].toLowerCase();
+      var width = null;
+      var height = null;
+      var className = null;
+      var id = null;
+      var style = null;
+      var alt = null;
+      var response = null;
+      var markup = null;
+      var svgDocument = null;
+      var svg = null;
+
+      if (img.dataset.inlineSvgProcessed === 'true' || !normalizedSource.endsWith('.svg')) {
+        return null;
+      }
+
+      try {
+        response = await fetch(source, { credentials });
+        if (!response.ok) {
+          return null;
+        }
+
+        markup = await response.text();
+        svgDocument = new DOMParser().parseFromString(markup, 'image/svg+xml');
+        svg = svgDocument.querySelector('svg');
+        if (!svg) {
+          return null;
+        }
+
+        width = img.getAttribute('width');
+        height = img.getAttribute('height');
+        className = img.getAttribute('class');
+        id = img.getAttribute('id');
+        style = img.getAttribute('style');
+        alt = img.getAttribute('alt');
+
+        if (width) {
+          svg.setAttribute('width', width);
+        }
+        if (height) {
+          svg.setAttribute('height', height);
+        }
+        if (className) {
+          svg.setAttribute('class', className);
+        }
+        if (id) {
+          svg.setAttribute('id', id);
+        }
+        if (style) {
+          svg.setAttribute('style', style);
+        }
+
+        if (alt) {
+          svg.setAttribute('role', 'img');
+          svg.setAttribute('aria-label', alt);
+        } else {
+          svg.setAttribute('aria-hidden', 'true');
+        }
+
+        if (forceCurrentColor) {
+          svg.setAttribute('fill', 'currentColor');
+          Array.from(svg.querySelectorAll('[fill]')).forEach((element) => {
+            var fillValue = (element.getAttribute('fill') || '').trim().toLowerCase();
+            if (fillValue && (!preserveFillNone || fillValue !== 'none')) {
+              element.setAttribute('fill', 'currentColor');
+            }
+          });
+        }
+
+        img.dataset.inlineSvgProcessed = 'true';
+        img.replaceWith(svg);
+        return svg;
+      } catch (error) {
+        return null;
+      }
+    })
+  );
+}
+inlineSvgImages()
+window.addEventListener('shopify:section:load', inlineSvgImages);
 
 /*
   Product card form

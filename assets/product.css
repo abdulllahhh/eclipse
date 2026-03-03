@@ -490,7 +490,8 @@
   width: calc(100% / var(--total));
 }
 
-.product-block[data-type="trust_icons"] ul[data-style="horizontal"] img {
+.product-block[data-type="trust_icons"] ul[data-style="horizontal"] img,
+.product-block[data-type="trust_icons"] ul[data-style="horizontal"] svg {
   margin: 0 0 0.25rem;
 }
 

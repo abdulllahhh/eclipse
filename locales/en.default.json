@@ -8,6 +8,8 @@
     "social_icons": "Social media links",
     "policy_links": "Policy links",
     "payment_methods": "Payment methods",
+    "previous": "Previous",
+    "next": "Next",
     "previous_media": "Previous media",
     "next_media": "Next media",
     "go_to_media": "Go to media {{ index }}",

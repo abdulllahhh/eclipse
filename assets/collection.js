@@ -133,7 +133,7 @@ class CollectionFiltersForm extends HTMLElement {
   }
 
   async fetchFilteredResults(urlString) {
-    const currentProductGrid = document.querySelector('.collection-grid');
+    const currentProductGrid = document.querySelector('.product-grid');
 
     // Add loading state
     if (currentProductGrid) {
@@ -161,25 +161,25 @@ class CollectionFiltersForm extends HTMLElement {
       }
 
       // Update the product grid
-      const newProductGrid = doc.querySelector('.collection-grid');
+      const newProductGrid = doc.querySelector('.product-grid');
       if (newProductGrid && currentProductGrid) {
         currentProductGrid.outerHTML = newProductGrid.outerHTML;
       }
 
-      const updatedProductGrid = document.querySelector('.collection-grid');
+      const updatedProductGrid = document.querySelector('.product-grid');
       if (updatedProductGrid) {
         updatedProductGrid.style.opacity = '1';
       }
 
       // Update the empty message
-      const currentEmptyMessage = document.querySelector('.collection-grid-empty');
-      const newEmptyMessage = doc.querySelector('.collection-grid-empty');
+      const currentEmptyMessage = document.querySelector('.collection-empty');
+      const newEmptyMessage = doc.querySelector('.collection-empty');
       if (newEmptyMessage && currentEmptyMessage) {
         currentEmptyMessage.outerHTML = newEmptyMessage.outerHTML;
       }
 
       // Update product grid and empty message visibility
-      const updatedEmptyMessage = document.querySelector('.collection-grid-empty');
+      const updatedEmptyMessage = document.querySelector('.collection-empty');
       const hasProducts = Boolean(newProductGrid && newProductGrid.children.length > 0);
       if (updatedProductGrid) {
         updatedProductGrid.hidden = !hasProducts;
