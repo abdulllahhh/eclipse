@@ -196,6 +196,7 @@
 
 <link rel="stylesheet" href="{{ 'theme.css' | asset_url }}">
 <link rel="stylesheet" href="{{ 'sections.css' | asset_url }}">
+<link rel="stylesheet" href="{{ 'search.css' | asset_url }}">
 
 {% if template.name == 'collection' %}
   <link rel="stylesheet" href="{{ 'collection.css' | asset_url }}">
@@ -216,7 +217,8 @@
         update: '{{ routes.cart_update_url }}',
         change: '{{ routes.cart_change_url }}',
         clear: '{{ routes.cart_clear_url }}'
-      }
+      },
+      predictiveSearch: '{{ routes.predictive_search_url }}?q='
     },
     strings: {
       accessibility: {
@@ -228,9 +230,16 @@
         unavailable: '{{ "product.unavailable" | t }}',
         cartErrorTitle: '{{ "product.cart_error_title" | t }}',
       },
+      search: {
+        searching: '{{ "search.searching" | t }}',
+        noResults: '{{ "search.no_results" | t }}',
+        resultsOne: '{{ "search.results_one" | t }}',
+        resultsOther: '{{ "search.results_other" | t }}',
+      },
     }
   };
 </script>
 
 <script src="{{ 'theme.js' | asset_url }}" defer></script>
 <script src="{{ 'cart.js' | asset_url }}" defer></script>
+<script src="{{ 'search.js' | asset_url }}" defer></script>

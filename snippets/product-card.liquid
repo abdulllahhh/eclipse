@@ -31,38 +31,7 @@
       </div>
     {% endif %}
   </div>
-  <div class="product-card-price">
-    <p class="price">
-      {% if product.compare_at_price > product.price %}
-        <s class="price-compare">
-          <span class="visually-hidden"> {{ 'product.price.regular' | t }} &nbsp; </span>
-          <span data-compare-price>{{ product.compare_at_price | money }}</span>
-        </s>
-        <span class="price-sale">
-          <span class="visually-hidden"> {{ 'product.price.sale' | t }} &nbsp; </span>
-          <span class="price-from">
-            {{ 'product.price.from' | t }}
-          </span>
-          <span data-price> {{ product.price | money }}</span>
-        </span>
-      {% else %}
-        <span class="price-regular">
-          {% if product.price_varies %}
-            <span class="price-from">
-              {{ 'product.price.from' | t }}
-            </span>
-          {% endif %}
-          <span data-price>{{ product.price | money }}</span>
-        </span>
-      {% endif %}
-      {% if product.selected_or_first_available_variant.unit_price > 0 %}
-        <span class="price-unit">
-          <span class="visually-hidden"> {{ 'product.price.unit' | t }} &nbsp; </span>
-          <span data-unit-price>({{ product.selected_or_first_available_variant.unit_price | unit_price_with_measurement: product.selected_or_first_available_variant.unit_price_measurement }})</span>
-        </span>
-      {% endif %}
-    </p>
-  </div>
+  {% render 'product-card-price', product: product %}
   {% if section.settings.card_show_form %}
     <product-card-form class="product-card-form">
       {% form 'product', product %}

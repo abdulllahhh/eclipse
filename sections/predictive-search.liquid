@@ -1,0 +1,149 @@
+
+{%- if predictive_search.performed -%}
+  <div 
+    id="predictive-search-results" 
+    class="predictive-search-results">
+
+    {%- if predictive_search.resources.queries.size > 0 -%}
+      <h3 
+        id="predictive-search-queries" 
+        class="predictive-search-heading fs-xs">
+        <span>
+          {{ 'search.results_queries' | t }}
+        </span>
+      </h3>
+      <ul 
+        role="listbox" 
+        aria-labelledby="predictive-search-queries" 
+        class="predictive-search-list"
+        data-type="queries">
+        {%- for query in predictive_search.resources.queries -%}
+          <li role="option" aria-selected="false" class="predictive-search-item">
+            <a 
+              href="{{ routes.search_url }}?q={{ query.text | url_encode }}" 
+              class="predictive-search-link">
+              <span class="predictive-search-title">{{ query.text }}</span>
+            </a>
+          </li>
+        {%- endfor -%}
+      </ul>
+    {%- endif -%}
+
+    {%- if predictive_search.resources.products.size > 0 -%}
+      <h3 
+        id="predictive-search-products" 
+        class="predictive-search-heading fs-xs">
+        <span>
+          {{ 'search.results_products' | t }}
+        </span>
+      </h3>
+      <ul 
+        role="listbox" 
+        aria-labelledby="predictive-search-products" 
+        class="predictive-search-list"
+        data-type="products">
+        {%- for product in predictive_search.resources.products -%}
+          <li role="option" aria-selected="false" class="predictive-search-item">
+            <a href="{{ product.url }}" class="predictive-search-link">
+              {% if product.featured_image %}
+                {{ product | image_url: width: 400 | image_tag: alt: product.title, class: 'predictive-search-image img-fluid' }}
+              {% endif %} 
+              <div>
+                <span class="predictive-search-title">{{ product.title }}</span>
+                {% render 'product-card-price', product: product %}
+              </div>
+            </a>
+          </li>
+        {%- endfor -%}
+      </ul>
+    {%- endif -%}
+
+    {%- if predictive_search.resources.collections.size > 0 -%}
+      <h3 
+        id="predictive-search-collections" 
+        class="predictive-search-heading fs-xs">
+        <span>
+          {{ 'search.results_collections' | t }}
+        </span>
+      </h3>
+      <ul 
+        role="listbox" 
+        aria-labelledby="predictive-search-collections" 
+        class="predictive-search-list"
+        data-type="collections">
+        {%- for collection in predictive_search.resources.collections -%}
+          <li role="option" aria-selected="false" class="predictive-search-item">
+            <a href="{{ collection.url }}" class="predictive-search-link">
+              {% if collection.image %}
+                {{ collection | image_url: width: 400 | image_tag: alt: collection.title, class: 'predictive-search-image img-fluid' }}
+              {% endif %}
+              <div>
+                <span class="predictive-search-title">{{ collection.title }}</span>
+              </div>
+            </a>
+          </li>
+        {%- endfor -%}
+      </ul>
+    {%- endif -%}
+
+    {%- if predictive_search.resources.articles.size > 0 -%}
+      <h3 
+        id="predictive-search-articles" 
+        class="predictive-search-heading fs-xs">
+        <span>
+          {{ 'search.results_articles' | t }}
+        </span>
+      </h3>
+      <ul 
+        role="listbox" 
+        aria-labelledby="predictive-search-articles" 
+        class="predictive-search-list"
+        data-type="articles">
+        {%- for article in predictive_search.resources.articles -%}
+          <li role="option" aria-selected="false" class="predictive-search-item">
+            <a href="{{ article.url }}" class="predictive-search-link">
+              {% if article.image %}
+                {{ article | image_url: width: 400 | image_tag: alt: article.title, class: 'predictive-search-image img-fluid' }}
+              {% endif %}
+              <div>
+                <span class="predictive-search-title">{{ article.title }}</span>
+                <span class="predictive-search-meta fs-sm">{{ article.published_at | date: "%b %d, %Y" }}</span>
+              </div>
+            </a>
+          </li>
+        {%- endfor -%}
+      </ul>
+    {%- endif -%}
+
+    {%- if predictive_search.resources.pages.size > 0 -%}
+      <h3 
+        id="predictive-search-pages" 
+        class="predictive-search-heading fs-xs">
+        <span>
+          {{ 'search.results_pages' | t }}
+        </span>
+      </h3>
+      <ul 
+        role="listbox" 
+        aria-labelledby="predictive-search-pages" 
+        class="predictive-search-list"
+        data-type="pages">
+        {%- for page in predictive_search.resources.pages -%}
+          <li role="option" aria-selected="false" class="predictive-search-item">
+            <a href="{{ page.url }}" class="predictive-search-link">
+              <span class="predictive-search-title">{{ page.title }}</span>
+            </a>
+          </li>
+        {%- endfor -%}
+      </ul>
+    {%- endif -%}
+
+    <a 
+      href="{{ routes.search_url }}?q={{ predictive_search.terms | url_encode }}" 
+      class="predictive-search-view-all btn btn-secondary">
+      {{ 'search.view_all' | t: terms: predictive_search.terms }}
+    </a>
+  </div>
+{%- else -%}
+  <div id="predictive-search-results"></div>
+{%- endif -%}

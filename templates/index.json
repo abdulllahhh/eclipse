@@ -57,6 +57,77 @@
         "pb": 25
       }
     },
+    "collections_list_neHdek": {
+      "type": "collections-list",
+      "blocks": {
+        "collection_hNc9K4": {
+          "type": "collection",
+          "settings": {
+            "collection": "men"
+          }
+        },
+        "collection_ptjkf6": {
+          "type": "collection",
+          "settings": {
+            "collection": "women"
+          }
+        },
+        "collection_MrQ6Ap": {
+          "type": "collection",
+          "settings": {
+            "collection": "children"
+          }
+        },
+        "collection_wEj83Y": {
+          "type": "collection",
+          "settings": {
+            "collection": "babies"
+          }
+        },
+        "collection_Rg4Gap": {
+          "type": "collection",
+          "settings": {
+            "collection": "latest-arrivals"
+          }
+        },
+        "collection_HckciN": {
+          "type": "collection",
+          "settings": {
+            "collection": "best-selling"
+          }
+        }
+      },
+      "block_order": [
+        "collection_hNc9K4",
+        "collection_ptjkf6",
+        "collection_MrQ6Ap",
+        "collection_wEj83Y",
+        "collection_Rg4Gap",
+        "collection_HckciN"
+      ],
+      "name": "Collections list",
+      "settings": {
+        "display": "selected",
+        "limit": 40,
+        "custom_color_schemes": true,
+        "light_color_scheme": "scheme-2",
+        "dark_color_scheme": "scheme-4",
+        "text_align": "center",
+        "show_breadcrumb": false,
+        "title": "Collections",
+        "heading_size": "h2",
+        "description": "<p>Explore our curated selection of collections featuring unique products and styles tailored to your preferences.<\/p>",
+        "description_size": "fs-md",
+        "card_show_img": true,
+        "card_img_ratio": "ratio-16x9",
+        "card_heading_size": "fs-md",
+        "card_show_product_count": true,
+        "mobile_cols": 2,
+        "desktop_cols": 3,
+        "pt": 25,
+        "pb": 25
+      }
+    },
     "richtext_FUFaAX": {
       "type": "richtext",
       "name": "Rich Text",
@@ -301,6 +372,7 @@
   "order": [
     "hero_media_M4Xdyq",
     "featured_collection_GTzdhN",
+    "collections_list_neHdek",
     "richtext_FUFaAX",
     "separator_1",
     "media_with_text_w9AxEE",

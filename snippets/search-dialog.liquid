@@ -15,24 +15,48 @@
       </button>
     </div>
     <div class="dialog-body">
-      <input
-        class="input"
-        type="text"
-        name="q"
-        value="{{ search.terms | escape }}"
-        placeholder="{{ 'search.placeholder' | t }}"
-        autocorrect="off"
-        autocomplete="off"
-        autocapitalize="off"
-        spellcheck="false"
-        role="combobox" 
-        aria-label="{{ 'search.label' | t }}"
-        aria-expanded="false"
-        aria-controls="predictive-search-results"
-        aria-owns="predictive-search-results"
-        aria-haspopup="listbox"
-        aria-autocomplete="list"
-      >
+      <predictive-search
+        class="predictive-search">
+        <form 
+          action="{{ routes.search_url }}" 
+          method="get" 
+          role="search" 
+          class="search-form">
+          <label 
+            for="search-input" 
+            class="visually-hidden">
+            {{ 'search.label' | t }}
+          </label>
+          <input
+            type="search"
+            id="search-input"
+            class="search-input input"
+            name="q"
+            value="{{ search.terms | escape }}"
+            placeholder="{{ 'search.placeholder' | t }}"
+            role="combobox"
+            aria-label="{{ 'search.label' | t }}"
+            aria-expanded="false"
+            aria-owns="predictive-search"
+            aria-controls="predictive-search"
+            aria-haspopup="listbox"
+            aria-autocomplete="list"
+          />
+          <input type="hidden" name="options[prefix]" value="last" />
+          <div 
+            id="predictive-search-status"
+            class="visually-hidden"
+            aria-live="polite"
+            aria-atomic="true">
+          </div>
+          <div 
+            id="predictive-search" 
+            tabindex="-1"
+            role="region"
+            aria-live="off">
+          </div>
+        </form>
+      </predictive-search>
     </div>
   </dialog>
 </theme-dialog>

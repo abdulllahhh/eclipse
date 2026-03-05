@@ -143,6 +143,16 @@
   "search": {
     "title": "Search",
     "label": "Search our store",
-    "placeholder": "Start typing to see results..."
+    "placeholder": "Start typing to see results...",
+    "results_products": "Products",
+    "results_collections": "Collections",
+    "results_articles": "Articles",
+    "results_pages": "Pages",
+    "results_queries": "Suggestions",
+    "view_all": "View all results for \"{{ terms }}\"",
+    "searching": "Searching...",
+    "no_results": "No results found",
+    "results_one": "1 result found",
+    "results_other": "{{ count }} results found"
   }
 }
