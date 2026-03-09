@@ -77,6 +77,12 @@
   "name": "{{ shop.name | escape }}",
   "url": "{{ request.origin | escape }}",
   "description": "{{ shop.description | escape }}"
+  {%- if settings.logo != blank %},
+  "logo": {
+    "@type": "ImageObject",
+    "url": "{{ settings.logo | image_url: width: 600 | escape }}"
+  }
+  {%- endif -%}
   {%- if settings.social_facebook_link != blank or settings.social_twitter_link != blank or settings.social_instagram_link != blank or settings.social_tiktok_link != blank or settings.social_linkedin_link != blank or settings.social_youtube_link != blank or settings.social_pinterest_link != blank %},
   "sameAs": [
     {%- if settings.social_facebook_link != blank %}"{{ settings.social_facebook_link | escape }}"{% endif -%}
