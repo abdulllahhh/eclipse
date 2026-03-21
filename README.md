@@ -1,6 +1,6 @@
-# KS Eclipse
+# Eclipse
 
-KS Eclipse is a modern, performance-first Shopify theme designed for speed, flexibility, and a clean user experience. Built from scratch, it avoids heavy frameworks and unnecessary code, resulting in a fast, efficient storefront.
+Eclipse is a modern, performance-first Shopify theme designed for speed, flexibility, and a clean user experience. Built from scratch, it avoids heavy frameworks and unnecessary code, resulting in a fast, efficient storefront.
 
 The theme includes a refined Light and Dark mode system, allowing customers to manually switch between modes or automatically sync with their device preferences for a seamless browsing experience.
 
