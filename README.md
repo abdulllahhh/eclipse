@@ -33,9 +33,14 @@ This free edition provides a strong core foundation for modern Shopify stores. P
 - Latest articles
 - Separator
 
+## Details
+https://kondasoft.com/themes/eclipse
+
 ## Demo
 https://eclipse-demo.kondasoft.com (Password: ks)
 
+## Download
+https://github.com/kondasoft/eclipse/releases
 
 ## Support
 For support, [open an issue on GitHub](https://github.com/kondasoft/ks-eclipse/issues/new) or [contact us directly](https://www.kondasoft.com/pages/contact).
