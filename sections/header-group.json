@@ -29,12 +29,12 @@
       "type": "header",
       "custom_css": [],
       "settings": {
-        "custom_color_schemes": false,
+        "custom_color_schemes": true,
         "light_color_scheme": "",
         "dark_color_scheme": "scheme-3",
         "border_bottom": true,
         "box_shadow": false,
-        "logo_height": 20,
+        "logo_height": 78,
         "cart_icon": "bag",
         "pt": 5,
         "pb": 5
