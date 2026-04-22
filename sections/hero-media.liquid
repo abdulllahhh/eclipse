@@ -47,7 +47,7 @@
         assign video_poster = 'poster="' | append: video_poster_img | append: '" '
         assign video_preload = 'preload="auto" '
       else
-        assign video_autoplay = 'autoplay muted playsinline loop'
+        assign video_autoplay = 'autoplay'
         assign video_poster = 'data-poster="' | append: video_poster_img | append: '" '
         assign video_preload = 'preload="none" '
       endif
