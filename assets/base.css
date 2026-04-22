@@ -974,3 +974,6 @@ shopify-accelerated-checkout {
   border-radius: var(--border-radius);
   overflow: hidden;
 }
+.product-card-video {
+  border: 3px solid red; /* just to see it */
+}
