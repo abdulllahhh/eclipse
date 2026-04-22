@@ -1002,3 +1002,7 @@ shopify-accelerated-checkout {
   height: 100%;
   object-fit: cover;
 }
+.img-wrapper video,
+.img-wrapper img {
+  border-radius: inherit;
+}
