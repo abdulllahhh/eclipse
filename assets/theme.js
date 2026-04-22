@@ -1438,16 +1438,19 @@ document.addEventListener('DOMContentLoaded', function() {
 document.querySelectorAll('.product-card').forEach(card => {
   const video = card.querySelector('video');
   const image = card.querySelector('.product-card-img');
+  const videoWrapper = card.querySelector('.product-card-video');
 
-  if (!video) return;
+  if (!video || !image || !videoWrapper) return;
 
   card.addEventListener('mouseenter', () => {
-    image.style.opacity = 0;
+    image.style.opacity = '0';
+    videoWrapper.style.opacity = '1';
     video.play();
   });
 
   card.addEventListener('mouseleave', () => {
-    image.style.opacity = 1;
+    image.style.opacity = '1';
+    videoWrapper.style.opacity = '0';
     video.pause();
     video.currentTime = 0;
   });
