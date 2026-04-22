@@ -1412,3 +1412,25 @@ class ShareComponent extends HTMLElement {
   }
 }
 customElements.define("share-component", ShareComponent);
+
+document.addEventListener('DOMContentLoaded', function() {
+  const productCards = document.querySelectorAll('.product-card');
+
+  productCards.forEach(card => {
+    const video = card.querySelector('.product-card-video');
+    if (!video) return;
+
+    card.addEventListener('mouseenter', () => {
+      // Play returns a promise, so we use a catch to prevent console errors
+      const playPromise = video.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(() => { /* Autoplay was prevented */ });
+      }
+    });
+
+    card.addEventListener('mouseleave', () => {
+      video.pause();
+      video.currentTime = 0; // Resets video so it starts over next time
+    });
+  });
+});
