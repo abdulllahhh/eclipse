@@ -975,19 +975,6 @@ shopify-accelerated-checkout {
   overflow: hidden;
 }
 
-.img-wrapper {
-  position: relative;
-  overflow: hidden;
-}
-
-.product-card-img {
-  width: 100%;
-  display: block;
-  transition: opacity 0.25s ease;
-  position: relative;
-  z-index: 2;
-}
-
 .product-card-video {
   position: absolute;
   inset: 0;
@@ -1001,4 +988,5 @@ shopify-accelerated-checkout {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
 }
