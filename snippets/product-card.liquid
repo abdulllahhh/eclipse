@@ -1,20 +1,36 @@
 {% if product %}
   <div class="product-card {{ section.settings.card_text_alignment | prepend: 'text-' }}">
-    <div class="img-wrapper">
-      <img
-        src="{{ product.featured_image | image_url: width: 800 }}"
-        srcset="
-          {{ product.featured_image | image_url: width: 400 }} 400w,
-          {{ product.featured_image | image_url: width: 800 }} 800w
-        "      
-        sizes="(max-width: 599px) 400px, 800px"
-        alt="{{ product.featured_image.alt | escape }}"
-        width="{{ product.featured_image.width }}"
-        height="{{ product.featured_image.height }}"
-        class="product-card-img img-fluid"
-        loading="lazy"
-      >
+<div class="img-wrapper">
+  <!-- Product Image -->
+  <img
+    src="{{ product.featured_image | image_url: width: 800 }}"
+    srcset="
+      {{ product.featured_image | image_url: width: 400 }} 400w,
+      {{ product.featured_image | image_url: width: 800 }} 800w
+    "      
+    sizes="(max-width: 599px) 400px, 800px"
+    alt="{{ product.featured_image.alt | escape }}"
+    width="{{ product.featured_image.width }}"
+    height="{{ product.featured_image.height }}"
+    class="product-card-img img-fluid"
+    loading="lazy"
+  >
+
+  <!-- Product Video -->
+  {% assign product_video = nil %}
+  {% for media in product.media %}
+    {% if media.media_type == 'video' %}
+      {% assign product_video = media %}
+      {% break %}
+    {% endif %}
+  {% endfor %}
+
+  {% if product_video %}
+    <div class="product-card-video">
+      {{ product_video | media_tag: autoplay: false, loop: true, muted: true, controls: false }}
     </div>
+  {% endif %}
+</div>
     <div class="product-card-inner">
       {% if section.settings.card_show_vendor %}
         <p class="product-card-vendor fs-xs">

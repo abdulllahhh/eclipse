@@ -1434,3 +1434,21 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 });
+
+document.querySelectorAll('.product-card').forEach(card => {
+  const video = card.querySelector('video');
+  const image = card.querySelector('.product-card-img');
+
+  if (!video) return;
+
+  card.addEventListener('mouseenter', () => {
+    image.style.opacity = 0;
+    video.play();
+  });
+
+  card.addEventListener('mouseleave', () => {
+    image.style.opacity = 1;
+    video.pause();
+    video.currentTime = 0;
+  });
+});
