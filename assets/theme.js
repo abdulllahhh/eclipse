@@ -1434,3 +1434,20 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 });
+
+// Hover video play on product cards
+document.querySelectorAll('.img-wrapper').forEach((wrapper) => {
+  const video = wrapper.querySelector('.product-card-video');
+  if (!video) return;
+
+  wrapper.addEventListener('mouseenter', () => {
+    video.style.opacity = '1';
+    video.play().catch(() => {}); // catch autoplay policy errors silently
+  });
+
+  wrapper.addEventListener('mouseleave', () => {
+    video.style.opacity = '0';
+    video.pause();
+    video.currentTime = 0;
+  });
+});
