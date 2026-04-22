@@ -1,5 +1,6 @@
 {% if product %}
   <div class="product-card {{ section.settings.card_text_alignment | prepend: 'text-' }}">
+    {% assign product_video = product.media | where: "media_type", "video" | first %}
 <div class="img-wrapper" style="position: relative; overflow: hidden;">
   <img
     src="{{ product.featured_image | image_url: width: 800 }}"
