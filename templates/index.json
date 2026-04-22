@@ -255,6 +255,7 @@
     },
     "latest_articles_hnDQGf": {
       "type": "latest-articles",
+      "disabled": true,
       "name": "Latest Articles",
       "settings": {
         "blog": "news",
