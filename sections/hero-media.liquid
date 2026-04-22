@@ -37,7 +37,7 @@
     >
   {% elsif section.settings.type == 'video' and section.settings.video != blank %}
     {% liquid
-      assign video_autoplay = ''
+      assign video_autoplay = 'data-autoplay'
       assign video_poster = ''
       assign video_preload = ''
       assign video_poster_img = section.settings.video.preview_image | image_url: width: 2400
