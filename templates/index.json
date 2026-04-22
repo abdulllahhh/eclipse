@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero_media_M4Xdyq": {
@@ -5,8 +14,6 @@
       "name": "Hero Media",
       "settings": {
         "type": "video",
-        "img": "shopify:\/\/shop_images\/philipp-dusel-2F-m1FvoJT4-unsplash.jpg",
-        "video": "",
         "fixed_height": true,
         "media_min_height": 500,
         "media_max_height": 600,
@@ -21,20 +28,20 @@
         "subheading_size": "fs-sm",
         "heading": "Welcome to  KS Eclipse Theme",
         "heading_size": "h1",
-        "description": "<p>Modern, flexible Shopify theme with adaptive Light & Dark modes<\/p>",
+        "description": "<p>Modern, flexible Shopify theme with adaptive Light & Dark modes</p>",
         "description_size": "fs-lg",
         "btn_size": "fs-md",
         "primary_btn_label": "Download theme",
-        "primary_btn_link": "https:\/\/www.kondasoft.com\/collections\/shopify-themes\/products\/ks-eclipse",
+        "primary_btn_link": "https://www.kondasoft.com/collections/shopify-themes/products/ks-eclipse",
         "secondary_btn_label": "Learn more",
-        "secondary_btn_link": "https:\/\/www.kondasoft.com\/collections\/shopify-themes\/products\/ks-eclipse"
+        "secondary_btn_link": "https://www.kondasoft.com/collections/shopify-themes/products/ks-eclipse"
       }
     },
     "featured_collection_GTzdhN": {
       "type": "featured-collection",
       "name": "Featured Collection",
       "settings": {
-        "collection": "latest-arrivals",
+        "collection": "automated-collection",
         "limit": 8,
         "custom_color_schemes": false,
         "light_color_scheme": "",
@@ -43,7 +50,7 @@
         "header_align": "center",
         "heading": "Featured Collection",
         "heading_size": "h2",
-        "description": "<p>Showcase products from a collection with custom styling and layout options.<\/p>",
+        "description": "<p>Showcase products from a collection with custom styling and layout options.</p>",
         "description_size": "fs-md",
         "mobile_cols": 2,
         "desktop_cols": 4,
@@ -117,7 +124,7 @@
         "show_breadcrumb": false,
         "heading": "Collections",
         "heading_size": "h2",
-        "description": "<p>Explore our curated selection of collections featuring unique products and styles tailored to your preferences.<\/p>",
+        "description": "<p>Explore our curated selection of collections featuring unique products and styles tailored to your preferences.</p>",
         "description_size": "fs-md",
         "card_show_img": true,
         "card_img_ratio": "ratio-16x9",
@@ -142,13 +149,13 @@
         "subheading_size": "fs-sm",
         "heading": "Rich Text",
         "heading_size": "h1",
-        "description": "<p>This is a rich text section. You can use it to showcase your content or brand.<\/p>",
+        "description": "<p>This is a rich text section. You can use it to showcase your content or brand.</p>",
         "description_size": "fs-md",
         "btn_size": "fs-md",
         "primary_btn_label": "Latest arrivals",
-        "primary_btn_link": "shopify:\/\/collections\/latest-arrivals",
+        "primary_btn_link": "shopify://collections/latest-arrivals",
         "secondary_btn_label": "Best sellers",
-        "secondary_btn_link": "shopify:\/\/collections\/best-selling",
+        "secondary_btn_link": "shopify://collections/best-selling",
         "pt": 25,
         "pb": 25
       }
@@ -171,8 +178,6 @@
         "dark_color_scheme": "",
         "media_alignment_desktop": "left",
         "type": "video",
-        "img": "shopify:\/\/shop_images\/farid-askerov-cX6ra6dCtAM-unsplash.jpg",
-        "video": "",
         "external_video": "",
         "video_autoplay": true,
         "video_muted": true,
@@ -184,13 +189,13 @@
         "subheading_size": "fs-sm",
         "heading": "Media With Text",
         "heading_size": "h2",
-        "description": "<p>This is a media with text section. Use this section to add images, videos, or external videos from YouTube and Vimeo to your store.<\/p>",
+        "description": "<p>This is a media with text section. Use this section to add images, videos, or external videos from YouTube and Vimeo to your store.</p>",
         "description_size": "fs-md",
         "btn_size": "fs-md",
         "primary_btn_label": "Latest arrivals",
-        "primary_btn_link": "shopify:\/\/collections\/latest-arrivals",
+        "primary_btn_link": "shopify://collections/latest-arrivals",
         "secondary_btn_label": "Best sellers",
-        "secondary_btn_link": "shopify:\/\/collections\/best-selling",
+        "secondary_btn_link": "shopify://collections/best-selling",
         "pt": 25,
         "pb": 26
       }
@@ -206,18 +211,18 @@
     },
     "html_9n2q8X": {
       "type": "html",
-      "name": "HTML\/Liquid",
+      "name": "HTML/Liquid",
       "settings": {
-        "liquid": "<p class=\"alert text-center\">Current time is: <strong>{{ \"now\" | date: \"%Y-%m-%d %H:%M\" }}<\/strong><\/p>",
+        "liquid": "<p class=\"alert text-center\">Current time is: <strong>{{ \"now\" | date: \"%Y-%m-%d %H:%M\" }}</strong></p>",
         "custom_color_schemes": false,
         "light_color_scheme": "",
         "dark_color_scheme": "scheme-3",
         "container_width": "theme",
         "custom_container_width": 1500,
         "header_align": "center",
-        "heading": "HTML\/Liquid",
+        "heading": "HTML/Liquid",
         "heading_size": "h2",
-        "description": "<p>This is a custom HTML section. You can add any HTML or Liquid code here to create custom layouts and functionality.<\/p>",
+        "description": "<p>This is a custom HTML section. You can add any HTML or Liquid code here to create custom layouts and functionality.</p>",
         "description_size": "fs-md",
         "pt": 25,
         "pb": 25
@@ -235,12 +240,10 @@
         "header_align": "center",
         "heading": "Basic Media",
         "heading_size": "h2",
-        "description": "<p>This is a basic media section. Use this section to add images, videos, or external videos from YouTube and Vimeo to your store.<\/p>",
+        "description": "<p>This is a basic media section. Use this section to add images, videos, or external videos from YouTube and Vimeo to your store.</p>",
         "description_size": "fs-md",
         "type": "external_video",
-        "img": "shopify:\/\/shop_images\/philipp-dusel-2F-m1FvoJT4-unsplash.jpg",
-        "video": "",
-        "external_video": "https:\/\/www.youtube.com\/watch?v=rgZU5pDf6mw",
+        "external_video": "https://www.youtube.com/watch?v=rgZU5pDf6mw",
         "video_autoplay": true,
         "video_muted": true,
         "video_controls": true,
@@ -262,7 +265,7 @@
         "header_align": "center",
         "heading": "Latest Articles",
         "heading_size": "h2",
-        "description": "<p>Highlight recent posts from your blog.<\/p>",
+        "description": "<p>Highlight recent posts from your blog.</p>",
         "description_size": "fs-md",
         "mobile_cols": 1,
         "desktop_cols": 3,
@@ -294,15 +297,14 @@
           "settings": {
             "text_alignment": "center",
             "img_type": "icon",
-            "icon": "shopify:\/\/shop_images\/icon-rocket-takeoff.svg",
             "icon_size": 24,
             "img_ratio": "ratio-adapt",
             "heading": "Feature 1",
             "heading_size": "fs-md",
-            "description": "<p>Add a short description for this feature<\/p>",
+            "description": "<p>Add a short description for this feature</p>",
             "description_size": "fs-md",
             "btn_label": "",
-            "btn_link": "shopify:\/\/collections\/latest-arrivals",
+            "btn_link": "shopify://collections/latest-arrivals",
             "btn_style": "btn-primary",
             "btn_size": "btn-md"
           }
@@ -312,12 +314,11 @@
           "settings": {
             "text_alignment": "center",
             "img_type": "icon",
-            "icon": "shopify:\/\/shop_images\/icon-trophy.svg",
             "icon_size": 24,
             "img_ratio": "ratio-adapt",
             "heading": "Feature 2",
             "heading_size": "fs-md",
-            "description": "<p>Add a short description for this feature<\/p>",
+            "description": "<p>Add a short description for this feature</p>",
             "description_size": "fs-md",
             "btn_label": "",
             "btn_link": "",
@@ -330,12 +331,11 @@
           "settings": {
             "text_alignment": "center",
             "img_type": "icon",
-            "icon": "shopify:\/\/shop_images\/icon-truck.svg",
             "icon_size": 24,
             "img_ratio": "ratio-adapt",
             "heading": "Feature 3",
             "heading_size": "fs-md",
-            "description": "<p>Add a short description for this feature<\/p>",
+            "description": "<p>Add a short description for this feature</p>",
             "description_size": "fs-md",
             "btn_label": "",
             "btn_link": "",
@@ -348,12 +348,11 @@
           "settings": {
             "text_alignment": "center",
             "img_type": "icon",
-            "icon": "shopify:\/\/shop_images\/icon-credit-card.svg",
             "icon_size": 24,
             "img_ratio": "ratio-adapt",
             "heading": "Feature 4",
             "heading_size": "fs-md",
-            "description": "<p>Add a short description for this feature<\/p>",
+            "description": "<p>Add a short description for this feature</p>",
             "description_size": "fs-md",
             "btn_label": "",
             "btn_link": "",
@@ -379,7 +378,7 @@
         "header_align": "center",
         "heading": "Multicolumn",
         "heading_size": "h2",
-        "description": "<p>Add a short description of your multicolumn section here.<\/p>",
+        "description": "<p>Add a short description of your multicolumn section here.</p>",
         "description_size": "fs-md",
         "mobile_cols": 2,
         "tablet_cols": 2,
