@@ -14,6 +14,7 @@
       "name": "Hero Media",
       "settings": {
         "type": "video",
+        "video": "shopify://files/videos/11291-229221027_medium.mp4",
         "fixed_height": true,
         "media_min_height": 500,
         "media_max_height": 600,
@@ -31,10 +32,10 @@
         "description": "<p>Modern, flexible Shopify theme with adaptive Light & Dark modes</p>",
         "description_size": "fs-lg",
         "btn_size": "fs-md",
-        "primary_btn_label": "Download theme",
-        "primary_btn_link": "https://www.kondasoft.com/collections/shopify-themes/products/ks-eclipse",
+        "primary_btn_label": "All Products",
+        "primary_btn_link": "shopify://collections/all",
         "secondary_btn_label": "Learn more",
-        "secondary_btn_link": "https://www.kondasoft.com/collections/shopify-themes/products/ks-eclipse"
+        "secondary_btn_link": "shopify://policies/privacy-policy"
       }
     },
     "featured_collection_GTzdhN": {
