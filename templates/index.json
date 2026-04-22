@@ -114,7 +114,7 @@
       ],
       "name": "Collections list",
       "settings": {
-        "display": "selected",
+        "display": "all",
         "limit": 40,
         "style": "grid",
         "custom_color_schemes": true,
