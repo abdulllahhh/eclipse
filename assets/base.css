@@ -983,13 +983,17 @@ shopify-accelerated-checkout {
 .product-card-img {
   width: 100%;
   display: block;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.25s ease;
+  position: relative;
+  z-index: 2;
 }
 
 .product-card-video {
   position: absolute;
   inset: 0;
+  z-index: 1;
   opacity: 0;
+  transition: opacity 0.25s ease;
   pointer-events: none;
 }
 
