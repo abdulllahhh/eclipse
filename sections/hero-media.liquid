@@ -52,23 +52,10 @@
         assign video_preload = 'preload="none" '
       endif
     %}
-    <video
-      {{ video_autoplay }}
-      {{ video_preload }}
-      {{ video_poster }}
-      loop 
-      autoplay 
-      muted
-      playsinline
-      width="{{ section.settings.video.preview_image.width }}"
-      height="{{ section.settings.video.preview_image.height }}"
-    >
-      {% for source in section.settings.video.sources %}
-        {% comment %}theme-check-disable{% endcomment %}
-          <source src="{{ source.url }}" type="{{ source.mime_type }}">
-        {% comment %}theme-check-enable{% endcomment %}
-      {% endfor %}
-    </video>
+<video autoplay loop muted playsinline poster="IMAGE_URL" style="width:100%; height:auto;">
+  <source src="https://cdn.shopify.com/videos/c/o/v/d35a7f6226c6454599234e5d2d261c40.mp4" type="video/mp4">
+</video>
+
   {% else %}
     {{ 'hero-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}    
   {% endif %}
