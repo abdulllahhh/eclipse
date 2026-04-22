@@ -122,6 +122,33 @@
         {% endform %}
       </product-card-form>
     {% endif %}
+    <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.img-wrapper').forEach(function (wrapper) {
+      const video = wrapper.querySelector('.product-card-video');
+      if (!video) return;
+
+      console.log('✅ Video found:', video.src);
+
+      wrapper.addEventListener('mouseenter', function () {
+        console.log('🖱️ Hover in');
+        video.style.opacity = '1';
+        video.play().then(() => {
+          console.log('▶️ Playing');
+        }).catch((e) => {
+          console.error('❌ Play failed:', e);
+        });
+      });
+
+      wrapper.addEventListener('mouseleave', function () {
+        console.log('🖱️ Hover out');
+        video.style.opacity = '0';
+        video.pause();
+        video.currentTime = 0;
+      });
+    });
+  });
+</script>
   </div>
 {% else %}
   {% liquid 
