@@ -1436,7 +1436,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Hover video play on product cards
-document.querySelectorAll('.img-wrapper').forEach((wrapper) => {
+document.addEventListener('DOMContentLoaded', () =>({document.querySelectorAll('.img-wrapper').forEach((wrapper) => {
   const video = wrapper.querySelector('.product-card-video');
   if (!video) return;
 
@@ -1450,4 +1450,4 @@ document.querySelectorAll('.img-wrapper').forEach((wrapper) => {
     video.pause();
     video.currentTime = 0;
   });
-});
+});});
