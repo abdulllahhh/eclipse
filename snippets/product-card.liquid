@@ -1,20 +1,33 @@
 {% if product %}
   <div class="product-card {{ section.settings.card_text_alignment | prepend: 'text-' }}">
-    <div class="img-wrapper">
-      <img
-        src="{{ product.featured_image | image_url: width: 800 }}"
-        srcset="
-          {{ product.featured_image | image_url: width: 400 }} 400w,
-          {{ product.featured_image | image_url: width: 800 }} 800w
-        "      
-        sizes="(max-width: 599px) 400px, 800px"
-        alt="{{ product.featured_image.alt | escape }}"
-        width="{{ product.featured_image.width }}"
-        height="{{ product.featured_image.height }}"
-        class="product-card-img img-fluid"
-        loading="lazy"
-      >
+<div class="img-wrapper" style="position: relative; overflow: hidden;">
+  <img
+    src="{{ product.featured_image | image_url: width: 800 }}"
+    srcset="{{ product.featured_image | image_url: width: 400 }} 400w, {{ product.featured_image | image_url: width: 800 }} 800w"      
+    sizes="(max-width: 599px) 400px, 800px"
+    alt="{{ product.featured_image.alt | escape }}"
+    width="{{ product.featured_image.width }}"
+    height="{{ product.featured_image.height }}"
+    class="product-card-img img-fluid"
+    loading="lazy"
+  >
+
+  {%- liquid
+    assign product_video = product.media | where: 'media_type', 'video' | first
+  -%}
+
+  {%- if product_video != blank -%}
+    <div class="product-card-video-container" style="display:none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 2;">
+      {{ product_video | video_tag: 
+          autoplay: false, 
+          loop: true, 
+          muted: true, 
+          controls: false, 
+          class: 'product-card-video' 
+      }}
     </div>
+  {%- endif -%}
+</div>
     <div class="product-card-inner">
       {% if section.settings.card_show_vendor %}
         <p class="product-card-vendor fs-xs">
