@@ -977,3 +977,19 @@ shopify-accelerated-checkout {
 .product-card-video {
   border: 3px solid red; /* just to see it */
 }
+.img-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.product-card-video {
+  position: absolute;
+  inset: 0;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  display: block !important;
+}
